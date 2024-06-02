@@ -17,17 +17,54 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: var(--font-ibmPlexSans);
+  box-sizing: border-box;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .linear-gradient {
+    @apply bg-gradient-to-r from-orange from-0% via-red via-[52%] to-purple to-100%
+  }
+
+  .heading-1 {
+    @apply font-bold text-[102px] leading-[90px];
+  }
+
+  .heading-2 {
+    @apply font-bold text-5xl leading-[56px];
+  }
+
+  .heading-3 {
+    @apply font-bold text-[40px] leading-[48px];
+  }
+
+  .heading-4 {
+    @apply font-bold text-[32px] leading-10;
+  }
+
+  .heading-5 {
+    @apply font-bold text-[32px] leading-10;
+  }
+
+  .heading-6 {
+    @apply font-bold text-2xl leading-[32px];
+  }
+
+  .text-1 {
+    @apply font-normal text-lg leading-5
+  }
+
+  .text-2 {
+    @apply font-semibold text-lg leading-normal
   }
 }
