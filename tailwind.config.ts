@@ -3,10 +3,9 @@ import type { Config } from 'tailwindcss';
 const config = {
   darkMode: ['class'],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: '',
   theme: {
@@ -41,11 +40,10 @@ const config = {
         },
       },
       fontFamily: {
-        sans: ['Figtree', 'sans-serif'],
+        ibmPlexSans: ['IBM Plex Sans', 'sans-serif'],
       }
     },
   },
-  plugins: [require('tailwindcss-animate')],
 } satisfies Config;
 
 export default config;
