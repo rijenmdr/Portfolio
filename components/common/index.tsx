@@ -1,5 +1,7 @@
 import Button from "./Button"
+import Navbar from "./Navbar"
 
-exports = {
-    Button
+export {
+    Button,
+    Navbar,
 }

@@ -32,6 +32,10 @@ body {
 }
 
 @layer utilities {
+  .wrapper {
+    @apply max-w-[1440px] lg:mx-auto w-full;
+  }
+
   .linear-gradient {
     @apply bg-gradient-to-r from-orange from-0% via-red via-[52%] to-purple to-100%
   }
@@ -48,11 +52,11 @@ body {
     @apply font-bold text-[40px] leading-[48px];
   }
 
-  .heading-4 {
-    @apply font-bold text-[32px] leading-10;
+  .heading-5 {
+    @apply font-bold text-3xl;
   }
 
-  .heading-5 {
+  .heading-4 {
     @apply font-bold text-[32px] leading-10;
   }
 
