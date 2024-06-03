@@ -33,7 +33,7 @@ body {
 
 @layer utilities {
   .wrapper {
-    @apply max-w-[1440px] lg:mx-auto w-full;
+    @apply max-w-[1440px] lg:mx-auto p-5 md:px-10 xl:px-0 w-full;
   }
 
   .linear-gradient {
@@ -41,7 +41,7 @@ body {
   }
 
   .heading-1 {
-    @apply font-bold text-[102px] leading-[90px];
+    @apply font-bold text-[90px] leading-[90px];
   }
 
   .heading-2 {
@@ -52,13 +52,14 @@ body {
     @apply font-bold text-[40px] leading-[48px];
   }
 
+  .heading-4 {
+    @apply font-bold text-[32px] leading-10;
+  }
+  
   .heading-5 {
     @apply font-bold text-3xl;
   }
 
-  .heading-4 {
-    @apply font-bold text-[32px] leading-10;
-  }
 
   .heading-6 {
     @apply font-bold text-2xl leading-[32px];
