@@ -9,7 +9,9 @@ export default function RootLayout({
     <div className="flex h-screen flex-col">
         <div className="items-start inline-flex">
             <Navbar/>
-            {children}
+            <main className="mt-[136px] wrapper">
+              {children}
+            </main>
         </div>
     </div>
   );
