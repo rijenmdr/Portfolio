@@ -7,7 +7,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = ({ label, ...props }: Props) => {
     return (
-        <button {...props} className='flex items-center gap-2 bg-primary text-white px-10 py-[18px] transition-all hover:bg-white hover:text-primary border border-primary text-lg'>
+        <button {...props} className='flex items-center gap-2 bg-primary text-white px-10 py-[18px] transition-all hover:bg-white hover:text-primary border-2 border-primary text-lg w-fit rounded-md'>
             <span>
                 {label}
             </span>
