@@ -17,7 +17,7 @@ const Navbar = ({ }: Props) => {
             transition={{ duration: 0.6, ease: "easeInOut" }}
             className="wrapper fixed z-10 top-0 left-0 right-0 overflow-y-auto  max-w-[400px]"
         >
-            <div className="flex justify-between items-center rounded-full px-12 py-6 mt-6 bg-primary text-white border border-black-900/opacity-10 ">
+            <div className="flex justify-between items-center rounded-full px-4 md:px-12 py-6 mt-6 bg-primary text-white border border-black-900/opacity-10 ">
                 <Link href={"/"}>
                     <h4 className="heading-4">{`<Rijen/>`}</h4>
                 </Link>
