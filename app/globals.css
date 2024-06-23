@@ -99,7 +99,7 @@ body {
   .linear-gradient {
     @apply bg-gradient-to-r from-orange from-0% via-red via-[52%] to-purple to-100%
   }
-
+  
   .heading-1 {
     @apply font-bold text-[90px] leading-[90px];
   }
@@ -119,7 +119,6 @@ body {
   .heading-5 {
     @apply font-bold text-3xl;
   }
-
 
   .heading-6 {
     @apply font-bold text-2xl leading-[32px];

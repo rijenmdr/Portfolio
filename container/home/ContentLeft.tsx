@@ -1,6 +1,8 @@
-import { Button } from '@/components/common'
 import { Mailbox, Phone } from '@phosphor-icons/react/dist/ssr'
 import Image from 'next/image'
+
+import { Button } from '@/components/common'
+import IconWithLabel from '@/components/common/IconWithLabel'
 
 type Props = {}
 
@@ -22,7 +24,7 @@ const ContentLeft = ({ }: Props) => {
             <div className="flex flex-col gap-6 md:gap-12">
                 <div className="flex flex-col gap-6">
                     <h1 className="w-full md:w-[545px] text-primary heading-2 md:heading-1 drop-shadow-xl uppercase relative">
-                        <span className="!font-normal">My name<br />is</span><span className="!font-medium leading-[60px] md:leading-[90px]"> </span><span>Rijen<br />Manandhar</span>
+                        <span className="!font-normal">Hi 👋<br />I am</span><span className="!font-medium leading-[60px] md:leading-[90px]"> </span><span>Rijen<br />Manandhar</span>
 
                         <Image
                             src={"/images/ellipse.svg"}
@@ -47,15 +49,11 @@ const ContentLeft = ({ }: Props) => {
             <div className="flex gap-6 md:gap-12 items-center flex-wrap">
                 {
                     myDetail?.map(detail => (
-                        <div key={detail.id} className="flex gap-3 items-center">
-                            <div className="bg-primary/5 flex items-center justify-center rounded-full w-8 h-8">
-                                {detail?.icon}
-                            </div>
-
-                            <p className="text-primary text-lg font-bold leading-normal italic">
-                                {detail?.value}
-                            </p>
-                        </div>
+                        <IconWithLabel
+                            key={detail.id}
+                            icon={detail?.icon}
+                            label={detail?.value}
+                        />
                     ))
                 }
             </div>
