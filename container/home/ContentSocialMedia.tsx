@@ -1,6 +1,8 @@
 import { FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 
+import { Separator } from '@/components/ui/separator'
+
 type Props = {}
 
 const ContentSocialMedia = ({ }: Props) => {
@@ -22,7 +24,7 @@ const ContentSocialMedia = ({ }: Props) => {
         }
     ]
     return (
-        <div className="flex-col gap-5 hidden xl:flex">
+        <div className="flex-col items-center gap-5 hidden xl:flex">
             {
                 socialMedias?.map(socialMedia => (
                     <Link href={socialMedia?.link} target="_blank" key={socialMedia?.id} className="border w-10 h-10 rounded-full flex justify-center items-center text-primary hover:linear-gradient hover:text-white">
@@ -30,6 +32,8 @@ const ContentSocialMedia = ({ }: Props) => {
                     </Link>
                 ))
             }
+
+            <Separator className='h-[131px] w-[.1rem]' orientation='vertical'/>
         </div>
     )
 }
