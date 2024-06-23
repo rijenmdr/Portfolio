@@ -30,7 +30,7 @@ const ContentLeft = ({ }: Props) => {
                             width={0}
                             height={0}
                             style={{ zIndex: -1 }}
-                            className='absolute top-0 -left-[200px] w-[100%] h-[50px] md:h-[100px]'
+                            className='absolute top-0 -left-[120px] sm:-left-[200px] w-[100%] h-[50px] md:h-[100px]'
                         />
                     </h1>
 
