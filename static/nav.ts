@@ -17,11 +17,11 @@ export const navbarItems = [
     {
         id: 4,
         label: "Works",
-        link: "/home",
+        link: "/works",
     },
     {
         id: 5,
         label: "Contact",
-        link: "/home",
+        link: "/contact",
     },
 ]
