@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 import { motion } from "framer-motion";
 
 import { navbarItems } from "@/static/nav"
+import MobileDrawer from "./MobileDrawer";
 
 type Props = {}
 
@@ -39,7 +40,8 @@ const Navbar = ({ }: Props) => {
                         ))
                     }
                 </ul>
-
+                
+                <MobileDrawer/>
             </div>
         </motion.nav>
     )
