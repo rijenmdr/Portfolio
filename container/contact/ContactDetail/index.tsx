@@ -38,11 +38,11 @@ const ContactDetail = ({ }: Props) => {
                 </p>
             </div>
 
-            <div className="flex flex-col gap-2 lg:gap-5 text-primary">
-                <h4 className="heading-6 md:heading-4">
+            <div className="flex flex-col gap-1 lg:gap-5 text-primary">
+                <h4 className="heading-6 md:heading-5">
                     +977-9813103122
                 </h4>
-                <h4 className="heading-6 md:heading-4 ">
+                <h4 className="heading-6 md:heading-5">
                     rijenmdr47@gmail.com
                 </h4>
             </div>

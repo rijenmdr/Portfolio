@@ -5,6 +5,9 @@ import { ibmPlexSans } from "@/font";
 export const metadata: Metadata = {
   title: "Rijen Manandhar",
   description: "Portfolio of Rijen Manandhar",
+  icons: {
+    icon: "/images/user/about.svg",
+  },
 };
 
 export default function RootLayout({

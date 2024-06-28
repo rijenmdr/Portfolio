@@ -11,8 +11,8 @@ export const navbarItems = [
     },
     {
         id: 3,
-        label: "Tools",
-        link: "/tools",
+        label: "Skills",
+        link: "/skills",
     },
     {
         id: 4,

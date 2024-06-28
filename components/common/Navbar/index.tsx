@@ -19,7 +19,7 @@ const Navbar = ({ }: Props) => {
         >
             <div className="flex justify-between items-center rounded-full px-4 md:px-12 py-6 mt-6 bg-primary text-white border border-black-900/opacity-10 ">
                 <Link href={"/"}>
-                    <h4 className="heading-4">{`Rij.`}</h4>
+                    <h4 className="heading-4">{`<Rijen/>`}</h4>
                 </Link>
                 <ul className="hidden md:flex items-center gap-6">
                     {

@@ -11,19 +11,19 @@ type Props = {
 
 const ProjectCard = ({ name, category, link, image }: Props) => {
   return (
-    <Link href={link} target="_blank" className="flex justify-between flex-col-reverse md:flex-row  gap-4 md:gap-16">
+    <Link href={link} target="_blank" className="flex justify-between flex-col-reverse md:flex-row gap-4 md:gap-16 min-h-[232px]">
       <div className="flex flex-col justify-between gap-2 md:gap-6">
         <div className="flex flex-col gap-4">
-          <p className="text-2 italic text-primary">
+          <p className="text-base italic text-primary">
             {category}
           </p>
 
-          <h3 className="heading-5 md:heading-3 text-primary line-clamp-3">
+          <h4 className="heading-6 md:heading-4 text-primary line-clamp-3">
             {name}
-          </h3>
+          </h4>
         </div>
 
-        <ArrowUpRight weight="bold" className="text-primary h-8 md:h-16  w-8 md:w-16" />
+        <ArrowUpRight weight="bold" className="text-primary h-8 md:h-12 w-8 md:w-12" />
       </div>
 
       <Image

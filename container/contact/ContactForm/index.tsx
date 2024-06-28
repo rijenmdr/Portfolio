@@ -29,7 +29,7 @@ const ContactForm = ({ }: Props) => {
     }
     return (
         <div className='w-full md:w-[650px] linear-gradient p-8 md:p-20 lg:p-16 rounded-sm flex flex-col justify-between flex-wrap gap-4'>
-            <h3 className="heading-5 md:heading-3 uppercase text-white">
+            <h3 className="heading-5 md:heading-4 uppercase text-white">
                 Any Project ?
             </h3>
 

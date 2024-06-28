@@ -3,7 +3,7 @@ import React from 'react'
 
 type Props = {
     title: string;
-    subTitle: string;
+    subTitle?: string;
     textColor?: string
 }
 
@@ -14,9 +14,9 @@ const SectionHeading = ({ title, subTitle, textColor = "text-primary" }: Props) 
                 {subTitle}
             </h6>
 
-            <h2 className='heading-4 md:heading-2'>
+            <h3 className='heading-4 md:heading-3'>
                 {title}
-            </h2>
+            </h3>
         </div>
     )
 }
