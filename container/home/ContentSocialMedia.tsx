@@ -1,26 +1,29 @@
-import { FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react/dist/ssr'
+import { FacebookLogo, GithubLogo, LinkedinLogo } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 
 import { Separator } from '@/components/ui/separator'
+import { SocialLinks } from '@/type/user'
 
-type Props = {}
+type Props = {
+    socialLinks: SocialLinks
+}
 
-const ContentSocialMedia = ({ }: Props) => {
+const ContentSocialMedia = ({ socialLinks }: Props) => {
     const socialMedias = [
         {
             id: 1,
             icon: <FacebookLogo size={24} weight="bold" />,
-            link: "https://www.facebook.com/rijenmdr"
+            link: socialLinks?.facebook
         },
         {
             id: 2,
-            icon: <InstagramLogo size={24} weight="bold" />,
-            link: "https://www.instagram.com/sayami_rijen/"
+            icon: <GithubLogo size={24} weight="bold" />,
+            link:  socialLinks?.github
         },
         {
             id: 3,
             icon: <LinkedinLogo size={24} weight="bold" />,
-            link: "https://www.linkedin.com/in/rijenmanandhar/"
+            link: socialLinks?.linkedin
         }
     ]
     return (
@@ -33,7 +36,7 @@ const ContentSocialMedia = ({ }: Props) => {
                 ))
             }
 
-            <Separator className='h-[131px] w-[.1rem]' orientation='vertical'/>
+            <Separator className='h-[131px] w-[.1rem]' orientation='vertical' />
         </div>
     )
 }

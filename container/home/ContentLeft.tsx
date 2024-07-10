@@ -1,22 +1,32 @@
 import { Mailbox, Phone } from '@phosphor-icons/react/dist/ssr'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { Button } from '@/components/common'
 import IconWithLabel from '@/components/common/IconWithLabel'
+import { splitFirstLastName } from '@/utils/utils'
 
-type Props = {}
+type Props = {
+    name: string;
+    role: string;
+    phoneNumber: string;
+    email: string;
+    city: string;
+}
 
-const ContentLeft = ({ }: Props) => {
+const ContentLeft = ({ name, role, phoneNumber, email, city }: Props) => {
+    const { firstName, lastName } = splitFirstLastName(name);
+
     const myDetail = [
         {
             id: 1,
             icon: <Phone weight="bold" size={20} />,
-            value: "+977 9813103122"
+            value: phoneNumber
         },
         {
             id: 2,
             icon: <Mailbox weight="bold" size={20} />,
-            value: "rijenmdr47@gmail.com"
+            value: email
         }
     ]
     return (
@@ -24,7 +34,7 @@ const ContentLeft = ({ }: Props) => {
             <div className="flex flex-col gap-6 md:gap-12">
                 <div className="flex flex-col gap-6">
                     <h1 className="w-full md:w-[545px] text-primary heading-2 md:heading-1 drop-shadow-xl uppercase relative">
-                        <span className="!font-normal">Hi 👋<br />I am</span><span className="!font-medium leading-[60px] md:leading-[90px]"> </span><span>Rijen<br />Manandhar</span>
+                        <span className="!font-normal">Hi 👋<br />I am</span><span className="!font-medium leading-[60px] md:leading-[90px]"> </span><span>{firstName}<br />{lastName}</span>
 
                         <Image
                             src={"/images/ellipse.svg"}
@@ -37,13 +47,15 @@ const ContentLeft = ({ }: Props) => {
                     </h1>
 
                     <h6 className="w-full md:w-[545px] heading-6 text-primary">
-                        <span className="leading-loose italic">Fullstack Developer</span>{"  "}<span className="font-normal leading-loose"> based in </span><span className="leading-loose italic">Kathmandu</span>
+                        <span className="leading-loose italic">{role}</span>{"  "}<span className="font-normal leading-loose"> based in </span><span className="leading-loose italic">{city}</span>
                     </h6>
                 </div>
 
-                <Button
-                    label="Let's talk with me"
-                />
+                <Link href={"/contact"}>
+                    <Button
+                        label="Let's talk with me"
+                    />
+                </Link>
             </div>
 
             <div className="flex gap-6 md:gap-12 items-center flex-wrap">

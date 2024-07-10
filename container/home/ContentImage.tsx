@@ -2,10 +2,13 @@
 
 import Image from 'next/image'
 import { motion } from "framer-motion";
+import { Image as ImageType } from '@/type/image';
 
-type Props = {}
+type Props = {
+    image: ImageType
+}
 
-const ContentImage = ({ }: Props) => {
+const ContentImage = ({ image }: Props) => {
     return (
         <motion.div
             initial={{ y: 0 }}
@@ -18,8 +21,8 @@ const ContentImage = ({ }: Props) => {
             }}
         >
             <Image
-                src={"/images/user/home.svg"}
-                alt="Rijen Manandhar"
+                src={image?.image}
+                alt={image?.alt}
                 width={600}
                 height={80}
                 className="object-contain"
