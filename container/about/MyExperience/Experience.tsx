@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator";
+import dayjs from 'dayjs';
 
 type Props = {
     startYear: string;
@@ -11,7 +12,7 @@ const Experience = ({ startYear, endYear, companyName, position }: Props) => {
     return (
         <div className="flex flex-col gap-3 text-white min-w-[100%] md:min-w-[545px]">
             <div className="flex justify-between items-start sm:items-center flex-col sm:flex-row gap-4">
-                <p className="text-1 !font-bold italic">{startYear} - {endYear ? endYear : 'Present'}</p>
+                <p className="text-1 !font-bold italic">{dayjs(startYear).format("MMM YYYY")} - {endYear ? dayjs(endYear).format("MMM YYYY") : 'Present'}</p>
 
                 <p className="text-base font-medium">
                     - {companyName}

@@ -1,6 +1,5 @@
 // schemas/profile.ts
 
-import { User } from "@phosphor-icons/react/dist/ssr";
 import { defineField } from "sanity";
 
 const profile = {
@@ -65,6 +64,11 @@ const profile = {
         type: "string",
       },
       {
+        name: "experience",
+        title: "Experience",
+        type: "number",
+      },
+      {
         name: "email",
         title: "Email Address",
         type: "string",
@@ -75,8 +79,8 @@ const profile = {
         type: "string",
       },
       {
-        title: 'Date of birth',
         name: 'dateOfBirth',
+        title: 'Date of birth',
         type: 'date'
       },
       {

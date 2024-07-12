@@ -19,12 +19,12 @@ const ContentLeft = ({ name, role, phoneNumber, email, city }: Props) => {
 
     const myDetail = [
         {
-            id: 1,
+            id: "phone-number",
             icon: <Phone weight="bold" size={20} />,
             value: phoneNumber
         },
         {
-            id: 2,
+            id: "email",
             icon: <Mailbox weight="bold" size={20} />,
             value: email
         }
@@ -63,6 +63,7 @@ const ContentLeft = ({ name, role, phoneNumber, email, city }: Props) => {
                     myDetail?.map(detail => (
                         <IconWithLabel
                             key={detail.id}
+                            id={detail?.id}
                             icon={detail?.icon}
                             label={detail?.value}
                         />

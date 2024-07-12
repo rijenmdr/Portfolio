@@ -1,11 +1,13 @@
 import SectionHeading from '@/components/common/SectionHeading'
-import { experiences } from '@/static/experience'
-import React from 'react'
 import Experience from './Experience'
+import { getUserExperiences } from '@/sanity/sanity.query'
+import { Experience as ExperienceType } from '@/type/experience'
 
 type Props = {}
 
-const MyExperience = ({ }: Props) => {
+const MyExperience = async ({ }: Props) => {
+    const experiences: ExperienceType[] = await getUserExperiences();
+
     return (
         <div className='w-full linear-gradient p-10 md:p-20 lg:p-[120px] rounded-sm flex justify-between flex-wrap gap-4'>
             <SectionHeading
@@ -16,15 +18,16 @@ const MyExperience = ({ }: Props) => {
 
             <div className='flex flex-col gap-10'>
                 {
+                    experiences?.length ?
                     experiences?.map(experience => (
                         <Experience
-                            key={experience.id}
+                            key={experience._id}
                             startYear={experience?.startDate}
                             endYear={experience?.endDate}
                             companyName={experience?.companyName}
-                            position={experience?.position}
+                            position={experience?.role}
                         />
-                    ))
+                    )) : null
                 }
             </div>
         </div>

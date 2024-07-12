@@ -2,33 +2,44 @@ import { Mailbox, MapPin, Phone, UserRectangle } from "@phosphor-icons/react/dis
 import IconWithLabel from "@/components/common/IconWithLabel"
 import { Separator } from "@/components/ui/separator"
 import Quote from "@/components/common/Quote"
+import { convertDobInYears } from "@/lib/utils"
 
-type Props = {}
+type Props = {
+    phone: string;
+    dateOfBirth: string;
+    email: string;
+    city: string;
+    country: string;
+    experience: string;
+    name: string;
+    headline: string;
+    quote: string;
+    quoteBy: string;
+}
 
-const PersonalDetail = ({ }: Props) => {
+const PersonalDetail = ({ city, country, dateOfBirth, email, experience, headline, name, phone, quote, quoteBy }: Props) => {
     const details = [
         {
-            id: 1,
+            id: "phone-number",
             icon: <Phone weight="bold" size={20} />,
-            value: "+977 9813103122"
+            value: phone
         },
         {
-            id: 2,
+            id: "dob",
             icon: <UserRectangle weight="bold" size={20} />,
-            value: "25 yrs"
+            value: `${convertDobInYears(dateOfBirth)} yrs`
         },
         {
-            id: 3,
+            id: "email",
             icon: <Mailbox weight="bold" size={20} />,
-            value: "rijenmdr47@gmail.com"
+            value: email
         },
         {
-            id: 4,
+            id: "location",
             icon: <MapPin weight="bold" size={20} />,
-            value: "Kathmandu, Nepal"
+            value: `${city}, ${country}`
         }
     ]
-
     return (
         <div className="flex flex-col gap-8 max-w-[683px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-6">
@@ -36,6 +47,7 @@ const PersonalDetail = ({ }: Props) => {
                     details?.map(detail => (
                         <IconWithLabel
                             key={detail?.id}
+                            id={detail?.id}
                             icon={detail?.icon}
                             label={detail?.value}
                         />
@@ -48,7 +60,7 @@ const PersonalDetail = ({ }: Props) => {
             <div className="flex flex-col gap-5">
                 <div className="flex gap-3 items-center">
                     <h2 className="heading-2 linear-gradient text-transparent bg-clip-text">
-                        3+
+                        {experience}+
                     </h2>
 
                     <p className="text-1 italic !font-bold">
@@ -57,12 +69,13 @@ const PersonalDetail = ({ }: Props) => {
                     </p>
                 </div>
 
-                <p className="text-1">Hello there! My name is <span className="text-purple">Rijen Manandhar</span>.
-                    <span className="block">I am a developer, and I'm very passionate and dedicated to my work.</span></p>
+                <p className="text-1">Hello there! My name is <span className="text-purple">{name}</span>.
+                    <span className="block">{headline}</span></p>
             </div>
 
             <Quote
-                quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus sed sit ultrices et sed metus sollicitudin."
+                quote={quote}
+                quoteBy={quoteBy}
             />
         </div>
     )

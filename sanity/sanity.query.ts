@@ -8,3 +8,15 @@ export async function getHomeProfile(projection: string) {
     }`
   );
 }
+
+export async function getUserExperiences() {
+  return client.fetch(
+    groq`*[_type == "experience"] | order(_createdAt desc){
+       _id,
+      role,
+      startDate,
+      endDate,
+      companyName
+    }`
+  );
+}

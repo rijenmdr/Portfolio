@@ -10,10 +10,17 @@ export type User = {
     _id: string;
     fullName: string;
     role: string;
+    dateOfBirth: string;
     email: string;
     phoneNumber: string;
-    resumeUrl: string;
+    resumeURL: string;
     socialLinks: SocialLinks;
     profileImage: Image;
+    secondaryImage: Image;
     city: string;
+    country: string;
+    experience: string;
+    headline: string;
+    quote: string;
+    quoteBy: string;
 }

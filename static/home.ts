@@ -6,6 +6,5 @@ export const HOMEPAGE_GET_PROFILE_PROJECTION = `
     city,
     email,
     phoneNumber,
-    "resumeURL": resumeURL.asset->url,
     socialLinks,
 `
