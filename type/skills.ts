@@ -1,5 +1,11 @@
+export type SkillType = "development-tools" | "technologies"
+
 export type Skill = {
-    id: number,
+    _id: string,
     name: string,
-    image: string
+    type: SkillType
+    logo: {
+        alt: string;
+        image: string;
+    }
 }

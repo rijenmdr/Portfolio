@@ -20,3 +20,14 @@ export async function getUserExperiences() {
     }`
   );
 }
+
+export async function getAllSkill() {
+  return client.fetch(
+    groq`*[_type == "skill"] | order(_createdAt asc){
+       _id,
+      name,
+      type,
+      logo {alt, "image": asset->url},
+    }`
+  );
+}

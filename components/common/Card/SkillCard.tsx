@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { Image as ImageType } from "@/type/image";
 
 type Props = {
     name: string;
-    image: string;
+    image: ImageType;
 }
 
 const SkillCard = ({
@@ -12,8 +13,8 @@ const SkillCard = ({
   return (
     <div className="rounded-full px-10 py-4 shadow-sm cursor-pointer flex justify-center items-center gap-8 bg-white hover:linear-gradient hover:border-none hover:text-white">
         <Image
-            src={image}
-            alt={name}
+            src={image?.image}
+            alt={image?.alt}
             width={32}
             height={32}
             className="object-cover"

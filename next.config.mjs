@@ -3,7 +3,7 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                hostname: "letsenhance.io"
+                hostname: "cdn.sanity.io"
             }
         ]
     }

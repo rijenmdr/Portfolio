@@ -17,9 +17,9 @@ const SkillSection = ({ title, tools }: Props) => {
                 {
                     tools?.map(tool => (
                         <SkillCard
-                            key={tool?.id}
+                            key={tool?._id}
                             name={tool?.name}
-                            image={tool?.image}
+                            image={tool?.logo}
                         />
                     ))
                 }

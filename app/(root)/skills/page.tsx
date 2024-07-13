@@ -1,10 +1,17 @@
 import SectionHeading from "@/components/common/SectionHeading"
 import SkillSection from "@/components/common/SkillSection"
+import { getAllSkill } from "@/sanity/sanity.query"
 import { toolsUsed } from "@/static/tools"
+import { Skill } from "@/type/skills"
 
 type Props = {}
 
-const ToolsPage = ({ }: Props) => {
+const ToolsPage = async ({ }: Props) => {
+  const skills: Skill[] = await getAllSkill();
+  
+  const technologicalSkills = skills?.length ? skills?.filter(skill => skill?.type === "technologies") : [];
+  const developmentSkills = skills?.length ? skills?.filter(skill => skill?.type === "development-tools") : [];
+
   return (
     <section className='mt-4 md:mt-8'>
       <SectionHeading
@@ -14,12 +21,12 @@ const ToolsPage = ({ }: Props) => {
 
       <SkillSection
         title="Technologies I Use"
-        tools={toolsUsed}
+        tools={technologicalSkills}
       />
 
       <SkillSection
         title="Development Tools"
-        tools={toolsUsed}
+        tools={developmentSkills}
       />
     </section>
   )
