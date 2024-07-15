@@ -1,7 +1,6 @@
 import SectionHeading from "@/components/common/SectionHeading"
 import SkillSection from "@/components/common/SkillSection"
 import { getAllSkill } from "@/sanity/sanity.query"
-import { toolsUsed } from "@/static/tools"
 import { Skill } from "@/type/skills"
 
 type Props = {}

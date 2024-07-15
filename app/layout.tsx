@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { Toaster } from "@/components/ui/sonner"
+
 import { ibmPlexSans } from "@/font";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Rijen Manandhar",
@@ -17,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={ibmPlexSans.variable}>{children}</body>
+      <body className={ibmPlexSans.variable}>
+        {children}
+        <Toaster/>
+      </body>
     </html>
   );
 }

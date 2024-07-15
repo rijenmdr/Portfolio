@@ -21,3 +21,9 @@ export const convertDobInYears = (dateOfBirth: string) => {
 
   return age;
 }
+
+export const splitFirstLastName = (name: string) => {
+  const [firstName, lastName] = name?.split(" ");
+
+  return { firstName, lastName }
+}

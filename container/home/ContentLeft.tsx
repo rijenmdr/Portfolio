@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { Button } from '@/components/common'
 import IconWithLabel from '@/components/common/IconWithLabel'
-import { splitFirstLastName } from '@/utils/utils'
+import { splitFirstLastName } from '@/lib/utils'
 
 type Props = {
     name: string;

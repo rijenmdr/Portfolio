@@ -1,23 +1,28 @@
+import { getHomeProfile } from "@/sanity/sanity.query"
+import { HOMEPAGE_GET_PROFILE_PROJECTION } from "@/static/home";
+import { User } from "@/type/user";
 import Link from "next/link"
 
 type Props = {}
 
-const ContactDetail = ({ }: Props) => {
+const ContactDetail = async({ }: Props) => {
+    const profileData: User = await getHomeProfile(HOMEPAGE_GET_PROFILE_PROJECTION);
+
     const socialMedias = [
         {
             id: 1,
             label: "Facebook",
-            link: "https://facebook.com"
+            link: profileData?.socialLinks?.facebook
         },
         {
             id: 2,
-            label: "Instagram",
-            link: "https://instagram.com"
+            label: "Github",
+            link: profileData?.socialLinks?.github
         },
         {
             id: 3,
             label: "LinkedIn",
-            link: "https://linkedin.com"
+            link: profileData?.socialLinks?.linkedin
         }
     ]
     return (
@@ -34,16 +39,16 @@ const ContactDetail = ({ }: Props) => {
                 </div>
 
                 <p className="text-base text-primary">
-                    Tahachal, Kathmandu, Nepal
+                    {profileData?.city}, {profileData?.country}
                 </p>
             </div>
 
             <div className="flex flex-col gap-1 lg:gap-5 text-primary">
                 <h4 className="heading-6 md:heading-5">
-                    +977-9813103122
+                    {profileData?.phoneNumber}
                 </h4>
                 <h4 className="heading-6 md:heading-5">
-                    rijenmdr47@gmail.com
+                    {profileData?.email}
                 </h4>
             </div>
 

@@ -31,3 +31,15 @@ export async function getAllSkill() {
     }`
   );
 }
+
+export async function getAllProjects() {
+  return client.fetch(
+    groq`*[_type == "project"] | order(_createdAt desc){
+       _id,
+      name,
+      category,
+      logo {alt, "image": asset->url},
+      url
+    }`
+  );
+}

@@ -3,12 +3,14 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
+import { toast } from "sonner"
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
 import { validationSchema } from "./validationSchema"
 import { Button } from "@/components/common"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { sendContactMessage } from "@/sanity/sanity.mutation"
 
 type Props = {}
 
@@ -22,10 +24,16 @@ const ContactForm = ({ }: Props) => {
         },
     })
 
-    function onSubmit(values: z.infer<typeof validationSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+    async function onSubmit(values: z.infer<typeof validationSchema>) {
+        try {
+            await sendContactMessage(values);
+            form.reset();
+            toast("Your contact message has been sent successfully.", {
+                description: "Will contact you as soon as possible.",
+            })
+        } catch (error) {
+            console.log(error);
+        }
     }
     return (
         <div className='w-full md:w-[650px] linear-gradient p-8 md:p-20 lg:p-16 rounded-sm flex flex-col justify-between flex-wrap gap-4'>
@@ -83,7 +91,7 @@ const ContactForm = ({ }: Props) => {
                             />
                         </div>
                     </div>
-                    <Button type="submit" label="Submit Now" />
+                    <Button disabled={form.formState.isSubmitting} isLoading={form.formState.isSubmitting} type="submit" label="Submit Now" />
                 </form>
             </Form>
         </div>
