@@ -8,3 +8,12 @@ export type Project = {
     }
     url: string;
 }
+
+export type GetAllProjectParams = {
+    page: number;
+}
+
+export type GetAllProjectResponse = {
+    projects: Project[];
+    totalCount: number
+}

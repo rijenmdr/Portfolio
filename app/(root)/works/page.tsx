@@ -1,14 +1,21 @@
 import { Button } from '@/components/common'
 import ProjectCard from '@/components/common/Card/ProjectCard'
+import LoadMore from '@/components/common/LoadMore'
 import SectionHeading from '@/components/common/SectionHeading'
 import { getAllProjects } from '@/sanity/sanity.query'
-import { projects } from '@/static/projects'
+import { SearchParams } from '@/type/generic'
 import { Project } from '@/type/project'
 
-type Props = {}
+type Props = {
+  searchParams: SearchParams
+}
 
-async function Works({ }: Props) {
-  const projects: Project[] = await getAllProjects();
+async function Works({ searchParams }: Props) {
+  const page = searchParams["page"] || "1"
+
+  const { projects, totalCount } = await getAllProjects({
+    page: Number(page)
+  });
 
   return (
     <section className='mt-4 md:mt-8'>
@@ -33,11 +40,10 @@ async function Works({ }: Props) {
         }
       </div>
 
-      {/* <div className='mt-16 flex justify-center'>
-        <Button
-          label="Load More"
-        />
-      </div> */}
+      <LoadMore
+        projectsLength={projects?.length}
+        totalCount={totalCount}
+      />
     </section>
   )
 }

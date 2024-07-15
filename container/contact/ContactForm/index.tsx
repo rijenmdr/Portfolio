@@ -32,7 +32,9 @@ const ContactForm = ({ }: Props) => {
                 description: "Will contact you as soon as possible.",
             })
         } catch (error) {
-            console.log(error);
+            toast("Something went wrong", {
+                description: error instanceof Error && error.message || 'An error occurred while sending the contact detail. Please try again.',
+            })
         }
     }
     return (

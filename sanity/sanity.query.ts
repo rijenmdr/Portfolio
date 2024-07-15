@@ -1,5 +1,7 @@
 import { groq } from "next-sanity";
 import client from "./sanity.client";
+import { GetAllProjectParams, GetAllProjectResponse, Project } from "@/type/project";
+import { LIMIT } from "@/static/generic";
 
 export async function getHomeProfile(projection: string) {
   return client.fetch(
@@ -32,14 +34,23 @@ export async function getAllSkill() {
   );
 }
 
-export async function getAllProjects() {
-  return client.fetch(
-    groq`*[_type == "project"] | order(_createdAt desc){
-       _id,
-      name,
-      category,
-      logo {alt, "image": asset->url},
-      url
-    }`
-  );
+export async function getAllProjects({ page }: GetAllProjectParams) {
+  const start = 0;
+  const end = (page - 1) * LIMIT + LIMIT;
+
+  try {
+    const projects: Project[] = await client.fetch(
+      groq`*[_type == "project"] | order(_createdAt desc)[${start}...${end}]{
+         _id,
+        name,
+        category,
+        logo {alt, "image": asset->url},
+        url
+      }`
+    );
+    const totalCount: number = await client.fetch('count(*[_type == "project"])');
+    return { projects, totalCount }
+  } catch (error) {
+    throw new Error("Error while fetching project")
+  }
 }
