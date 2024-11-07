@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  portfolio:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio
+    restart: on-failure
+    network_mode: host

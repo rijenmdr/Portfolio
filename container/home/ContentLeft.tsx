@@ -53,7 +53,7 @@ const ContentLeft = ({ name, role, phoneNumber, email, city }: Props) => {
 
                 <Link href={"/contact"}>
                     <Button
-                        label="Let's talk with me"
+                        label="Let's talk"
                     />
                 </Link>
             </div>
